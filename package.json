@@ -1,0 +1,29 @@
+{
+  "name": "pasavocablo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "rm -rf dist && vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "eslint": "^8.37.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "gh-pages": "^5.0.0",
+    "stylelint": "15.2.0",
+    "stylelint-config-standard": "30.0.1",
+    "vite": "^4.2.0"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^3.2.47"
+  }
+}

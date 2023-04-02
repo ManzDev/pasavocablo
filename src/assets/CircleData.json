@@ -1,0 +1,32 @@
+{
+  "time": 180,
+  "words": [
+    { "letter": "A", "start": true, "question": "Streamer de Twitch que nunca programa", "response": "afor_digital" },
+    { "letter": "B", "start": true, "question": "", "response": "" },
+    { "letter": "C", "start": true, "question": "", "response": "" },
+    { "letter": "D", "start": true, "question": "", "response": "" },
+    { "letter": "E", "start": true, "question": "", "response": "" },
+    { "letter": "F", "start": true, "question": "", "response": "" },
+    { "letter": "G", "start": true, "question": "", "response": "" },
+    { "letter": "H", "start": true, "question": "", "response": "" },
+    { "letter": "I", "start": true, "question": "", "response": "" },
+    { "letter": "J", "start": true, "question": "", "response": "" },
+    { "letter": "K", "start": true, "question": "", "response": "" },
+    { "letter": "L", "start": true, "question": "", "response": "" },
+    { "letter": "M", "start": true, "question": "", "response": "" },
+    { "letter": "N", "start": true, "question": "", "response": "" },
+    { "letter": "Ñ", "start": true, "question": "", "response": "" },
+    { "letter": "O", "start": true, "question": "", "response": "" },
+    { "letter": "P", "start": true, "question": "", "response": "" },
+    { "letter": "Q", "start": true, "question": "", "response": "" },
+    { "letter": "R", "start": true, "question": "", "response": "" },
+    { "letter": "S", "start": true, "question": "", "response": "" },
+    { "letter": "T", "start": true, "question": "", "response": "" },
+    { "letter": "U", "start": true, "question": "", "response": "" },
+    { "letter": "V", "start": true, "question": "", "response": "" },
+    { "letter": "W", "start": true, "question": "", "response": "" },
+    { "letter": "X", "start": true, "question": "", "response": "" },
+    { "letter": "Y", "start": true, "question": "", "response": "" },
+    { "letter": "Z", "start": true, "question": "", "response": "" }
+  ]
+}
