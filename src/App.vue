@@ -10,15 +10,13 @@ export default {
     WordCounter,
     TimeCounter
   },
-  mounted() {
-    this.organizeCircle();
-  },
   data() {
     return {
       words: CircleData.words,
       currentQuestionIndex: 0,
       totalSolvedWords: 0,
-      totalTimeLeft: CircleData.time
+      totalTimeLeft: CircleData.time,
+      radius: 640
     }
   },
   computed: {
@@ -26,19 +24,6 @@ export default {
       const prefix = this.words[this.currentQuestionIndex].start ? "Con la " : "Contiene la ";
       const letter = this.words[this.currentQuestionIndex].letter
       return prefix + letter + ": " + this.words[this.currentQuestionIndex].question
-    }
-  },
-  methods: {
-    organizeCircle() {
-      const circle = this.$el.querySelector(".word-circle");
-      const letters = this.$el.querySelectorAll(".center .circle");
-      const radius = (circle.offsetWidth / 2) - 45;
-      const angle = (2 * Math.PI) / letters.length;
-      for (let i = 0; i < letters.length; i++) {
-        const x = radius * Math.cos(angle * i - Math.PI / 2);
-        const y = radius * Math.sin(angle * i - Math.PI / 2);
-        letters[i].style.transform = `translate(${x}px, ${y}px)`;
-      }
     }
   }
 }
@@ -57,7 +42,10 @@ export default {
             :class="currentQuestionIndex === index && `current`"
             :key="word.letter"
             :status="`unsolved`"
-            :letter="word.letter" />
+            :letter="word.letter"
+            :index="index"
+            :totalLetters="words.length"
+            :radius="radius"/>
       </div>
       <div class="text-dialog">
         <p>{{ currentQuestion }}</p>
@@ -109,7 +97,7 @@ export default {
   }
 
   .word-circle {
-    --size: 640px;
+    --size: v-bind(radius + 'px');
 
     width: var(--size);
     height: var(--size);

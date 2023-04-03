@@ -10,12 +10,20 @@ export default {
   name: "LetterCircle",
   props: {
     letter: { type: String },
-    status: { type: String }
-  },
-  mounted() {
+    status: { type: String },
+    index: { type: Number },
+    totalLetters: { type: Number },
+    radius: { type: Number }
   },
   data() {
+    const radius = (this.$props.radius / 2) - 45;
+    const angle = (2 * Math.PI) / this.$props.totalLetters;
+    const x = radius * Math.cos(angle * this.$props.index - Math.PI / 2);
+    const y = radius * Math.sin(angle * this.$props.index - Math.PI / 2);
+
     return {
+      x,
+      y
     }
   },
   computed: {
@@ -36,6 +44,7 @@ export default {
 .circle {
   --size: 55px;
 
+  translate: v-bind(x + 'px') v-bind(y + 'px');
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   font-size: 2.3rem;
