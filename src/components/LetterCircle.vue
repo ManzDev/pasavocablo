@@ -1,9 +1,10 @@
 <script>
 const COLORS = {
+  "active": "#4ca9ff",      // active + unsolved
   "unsolved": "#0061f0",
   "solved": "#00c13b",
   "failed": "#e52228",
-  "skipped": "#0061f0"
+  "skipped": "orangered"    // unsolved + skipped
 };
 
 export default {
@@ -21,6 +22,9 @@ export default {
   computed: {
     color() {
       return COLORS[this.status];
+    },
+    glow() {
+      return this.status === "active" ? "0 0 8px 1px #4ca9ff" : "none";
     }
   },
   methods: {
@@ -50,5 +54,6 @@ export default {
   place-items: center;
   user-select: none;
   position: absolute;
+  box-shadow: v-bind(glow);
 }
 </style>

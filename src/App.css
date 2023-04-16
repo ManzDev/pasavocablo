@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Tilt+Warp&display=swap");
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-family: "Tilt Warp", fantasy;
+  font-size: 3rem;
+  margin: 0.75rem;
+  text-align: center;
+  color: #fff;
+}
+
+.app {
+  --size: 640px;
+
+  max-width: 1280px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 320px 640px 320px;
+  grid-template-rows: 100vh;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  margin-bottom: 8rem;
+}
+
+.center {
+  display: grid;
+  grid-template-rows: 60px var(--size) 1fr;
+  align-items: center;
+}
+
+.word-circle {
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-dialog {
+  font-family: Quicksand, sans-serif;
+  font-size: 1.75rem;
+  color: #fff;
+  min-width: var(--size);
+  height: 100%;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  align-items: start;
+}
+
+.text-dialog input {
+  font-family: Quicksand, sans-serif;
+  font-size: 1.25rem;
+  border: 2px solid #fff7;
+  padding: 8px;
+  background: #fff2;
+  border-radius: 5px;
+  width: 95%;
+  color: gold;
+  margin-top: 1em;
+}
+
+.right {
+  align-self: start;
+  justify-self: center;
+}
+
+.right button {
+  --gradient-color: linear-gradient(#0863a5, #1283d1);
+
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  padding: 1rem;
+  margin: 1rem;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  border: 0;
+  border-radius: 10px;
+  color: #eee;
+  background: var(--gradient-color);
+  box-shadow: 0 7px 0 #0b5a92, 0 8px 3px #0000004d;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+
+.right button:nth-child(2) {
+  translate: 0 -130px;
+}
+
+.right button:active {
+  color: #888;
+  background: linear-gradient(to bottom, #0006, #0008), var(--gradient-color);
+  transform: translateY(5px);
+  box-shadow: 0 2px 0 #0b5a92, 0 3px 3px #0000004d;
+}
+
+.right button:last-child {
+  position: absolute;
+  bottom: 60px;
+  filter: hue-rotate(140deg);
+}
