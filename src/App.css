@@ -96,15 +96,21 @@ h1 {
   translate: 0 -130px;
 }
 
-.right button:active {
+.right button:last-child {
+  position: absolute;
+  bottom: 60px;
+  filter: hue-rotate(140deg);
+}
+
+.right button:not([disabled]):active {
   color: #888;
   background: linear-gradient(to bottom, #0006, #0008), var(--gradient-color);
   transform: translateY(5px);
   box-shadow: 0 2px 0 #0b5a92, 0 3px 3px #0000004d;
 }
 
-.right button:last-child {
-  position: absolute;
-  bottom: 60px;
-  filter: hue-rotate(140deg);
+.right button.skip[disabled] {
+  color: #888;
+  background-image: linear-gradient(to bottom, #0006, #0008),
+    var(--gradient-color);
 }

@@ -3,8 +3,13 @@ import CircleData from "@/assets/CircleData.json";
 import TimeCounter from "@/components/TimeCounter.vue";
 import WordCounter from "@/components/WordCounter.vue";
 import LetterCircle from "@/components/LetterCircle.vue";
+import { Howl } from "howler";
 
 const MAX_QUESTION_LENGTH = 154;
+
+// phase = 0 (no ha empezado el juego)
+// phase = 1 (ha empezado el juego)
+// phase = 2 (ha terminado el juego)
 
 export default {
   name: "App",
@@ -19,11 +24,14 @@ export default {
   },
   data() {
     return {
+      phase: 0,
       words: CircleData.words,
       currentQuestionIndex: 0,
       totalSolvedWords: 0,
       totalFailedWords: 0,
-      totalTimeLeft: CircleData.time
+      totalTimeLeft: CircleData.time,
+      percentTimeElapsed: 0,
+      sound: new Howl({ src: ["sounds/ticktock.ogg"], loop: true })
     }
   },
   computed: {
@@ -39,6 +47,26 @@ export default {
       const longQuestions = this.words.filter(word => (word.question.length > MAX_QUESTION_LENGTH));
       console.log(longQuestions);
       this.words[0].status = "active";
+    },
+    startGame() {
+      this.phase = 1;
+      setInterval(() => this.nextTick(), 1000);
+      this.playSound();
+    },
+    checkSolution() {
+      alert()
+    },
+    nextTick() {
+      if (this.phase === 1) {
+        this.totalTimeLeft--;
+        this.percentTimeElapsed = 100 - ((this.totalTimeLeft * 100) / CircleData.time);
+        this.$el.style.setProperty("--current-time", this.percentTimeElapsed + "%")
+      }
+
+      if (this.totalTimeLeft === 0) {
+        this.phase = 2;
+        this.stopSound();
+      }
     },
     isAnswered(index) {
       const isSolved = this.words[index].status === "solved";
@@ -57,6 +85,8 @@ export default {
       }
     },
     skipQuestion() {
+      if (this.phase !== 1)
+        return;
       this.words[this.currentQuestionIndex].status = "skipped";
       this.nextQuestion();
       this.words[this.currentQuestionIndex].status = "active";
@@ -66,6 +96,12 @@ export default {
       do {
         this.currentQuestionIndex = (this.currentQuestionIndex + 1) % this.words.length;
       } while (this.isAnswered(this.currentQuestionIndex));
+    },
+    playSound() {
+      this.sound.play();
+    },
+    stopSound() {
+      this.sound.stop();
     }
   }
 }
@@ -87,13 +123,13 @@ export default {
             :letter="word.letter" />
       </div>
       <div class="text-dialog">
-        <input type="text">
+        <input type="text" @keydown.enter="checkSolution">
         <p>{{ currentQuestion }}</p>
       </div>
     </div>
     <div class="right">
-      <button>Empezar juego</button>
-      <button @click="skipQuestion">Pasa Vocablo</button>
+      <button @click="startGame">Empezar juego</button>
+      <button class="skip" @click="skipQuestion" :disabled="phase != 1">Pasa Vocablo</button>
     </div>
   </div>
 </template>

@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  howler:
+    specifier: ^2.2.3
+    version: 2.2.3
   vue:
     specifier: ^3.2.47
     version: 3.2.47
@@ -1524,6 +1527,10 @@ packages:
     dependencies:
       lru-cache: 6.0.0
     dev: true
+
+  /howler@2.2.3:
+    resolution: {integrity: sha512-QM0FFkw0LRX1PR8pNzJVAY25JhIWvbKMBFM4gqk+QdV+kPXOhleWGCB6AiAF/goGjIHK2e/nIElplvjQwhr0jg==}
+    dev: false
 
   /html-tags@3.2.0:
     resolution: {integrity: sha512-vy7ClnArOZwCnqZgvv+ddgHgJiAFXe3Ge9ML5/mBctVJoUoYPCdxVucOywjDARn6CVoh3dRSFdPHy2sX80L0Wg==}

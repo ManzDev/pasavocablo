@@ -24,6 +24,7 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
+    "howler": "^2.2.3",
     "vue": "^3.2.47"
   }
 }
